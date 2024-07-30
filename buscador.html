@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador</title>
+    <script>
+        function buscar(event) {
+            event.preventDefault(); // Previne o envio do formulário padrão
+            const query = document.getElementById('query').value;
+            fetch('buscador.php?query=' + encodeURIComponent(query))
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const resultadosDiv = document.getElementById('resultados');
+                    resultadosDiv.innerHTML = '';
+
+                    if (data.resultados.length > 0) {
+                        data.resultados.forEach(equipamento => {
+                            const equipamentoDiv = document.createElement('div');
+                            equipamentoDiv.innerHTML = `
+                                <h3>Cliente CPF: ${equipamento.Cliente_CPF}</h3>
+                                <h3>Funcionário Matrícula: ${equipamento.Funcionario_Matricula}</h3>
+                                <p>IP: ${equipamento.IP}</p>
+                                <p>Mac: ${equipamento.Mac}</p>
+                                <p>Tipo: ${equipamento.Tipo}</p>
+                                <p>Descrição: ${equipamento.Descrição}</p>
+                                <hr>
+                            `;
+                            resultadosDiv.appendChild(equipamentoDiv);
+                        });
+                    } else {
+                        resultadosDiv.innerHTML = `<p>Nenhum resultado encontrado para "${data.query}"</p>`;
+                    }
+                })
+                .catch(error => {
+                    const resultadosDiv = document.getElementById('resultados');
+                    resultadosDiv.innerHTML = `<p>Erro na busca: ${error.message}</p>`;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Buscador de Equipamentos</h1>
+    <form onsubmit="buscar(event);">
+        <input type="text" id="query" placeholder="Digite a palavra-chave para buscar" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados da Busca</h2>
+    <div id="resultados"></div>
+</body>
+</html>
