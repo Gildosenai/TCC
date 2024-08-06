@@ -7,7 +7,11 @@ function inserirEquipamentoCliente($IP, $mac, $tipo, $descrição, $cpf, $conn){
     if(mysqli_query($conn, $sql)){
         return mysqli_insert_id($conn); // Retorna o ID do equipamento inserido.
     } else{
-        echo "Erro ao cadastrar o equipamento: " . mysqli_error($conn);
+        $mensagem = "Erro ao cadastrar o equipamento: " . mysqli_error($conn);
+        $redirecionar = "home.php";
+        echo "<script>alert('$mensagem');
+        window.location.href ='$redirecionar';
+        </script>";
         return false;
     }
 }
@@ -18,7 +22,11 @@ function inserirEquipamentoFuncionario($IP, $mac, $tipo, $descrição, $matricul
     if(mysqli_query($conn,      $sql)){
         return mysqli_insert_id($conn); // Retorna o ID do equipamento inserido.
     } else{
-        echo "Erro ao cadastrar o equipamento: " . mysqli_error($conn);
+        $mensagem = "Erro ao cadastrar o equipamento: " . mysqli_error($conn);
+        $redirecionar = "home.php";
+        echo "<script>alert('$mensagem');
+        window.location.href ='$redirecionar';
+        </script>";
         return false;
     }
 }
@@ -44,7 +52,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Se o equipamento foi inserido com sucesso, exibe uma mensagem
     if ($IPEquipamento !== false) {
-        echo "Equipamento cadastrado com sucesso! IP: " . $IP;
+        
+        $mensagem = "Equipamento cadastrado com sucesso! IP: " . $IP;
+        $redirecionar = "home.php";
+        echo "<script>alert('$mensagem');
+        window.location.href ='$redirecionar';
+        </script>";
+        
+      
     }
 }
 
