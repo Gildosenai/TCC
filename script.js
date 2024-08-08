@@ -56,6 +56,7 @@ const menuhostindividual = document.getElementById('menuhostindividual');
 menuhostindividual.addEventListener('click', abrirmodalhostindividual);
 
 
+
 function fecharhostindividual() {
 const modalhostindividual = document.getElementById('modalhostindividual');
 modalhostindividual.style.display = 'none';
@@ -186,6 +187,7 @@ $(document).ready(function() {
       $('#iframe-display7').attr('src', link7 ? link7 : '');
       $('#iframe-display8').attr('src', link8 ? link8 : '');
   });
+
 });
 
 
@@ -226,3 +228,96 @@ function buscar(event) {
           resultadosDiv.innerHTML = `<p>Erro na busca: ${error.message}</p>`;
       });
 }
+
+$(document).ready(function() {
+  // Requisição AJAX para buscar categorias do arquivo PHP
+  $.ajax({
+    url: 'host.php',
+    dataType: 'json',
+    success: function(data) {
+      
+      $('#iframe-1').attr('src', data[0].link1 || '');
+      $('#iframe-2').attr('src', data[0].link2 || '');
+      $('#iframe-3').attr('src', data[0].link3 || '');
+      $('#iframe-4').attr('src', data[0].link4 || '');
+      $('#iframe-5').attr('src', data[0].link5 || '');
+      $('#iframe-6').attr('src', data[0].link6 || '');
+      $('#iframe-7').attr('src', data[0].link7 || '');
+      $('#iframe-8').attr('src', data[0].link8 || '');
+      $('#iframe-9').attr('src', data[0].link9 || '');
+      $('#iframe-10').attr('src', data[0].link10 || '');
+      $('#iframe-11').attr('src', data[0].link11 || '');
+      $('#iframe-12').attr('src', data[0].link12 || '');
+      $('#iframe-13').attr('src', data[0].link13 || '');
+      $('#iframe-14').attr('src', data[0].link14 || '');
+      $('#iframe-15').attr('src', data[0].link15 || '');
+      $('#iframe-16').attr('src', data[0].link16 || '');
+      $('#iframe-17').attr('src', data[0].link17 || '');
+      $('#iframe-18').attr('src', data[0].link18 || '');
+      $('#iframe-19').attr('src', data[0].link19 || '');
+      $('#iframe-20').attr('src', data[0].link20 || '');
+      $('#iframe-21').attr('src', data[0].link21 || '');
+      $('#iframe-22').attr('src', data[0].link22 || '');
+      $('#iframe-23').attr('src', data[0].link23 || '');
+      $('#iframe-24').attr('src', data[0].link24 || '');
+      $('#iframe-25').attr('src', data[0].link25 || '');
+      $('#iframe-26').attr('src', data[0].link26 || '');
+      $('#iframe-27').attr('src', data[0].link27 || '');
+      $('#iframe-28').attr('src', data[0].link28 || '');
+      $('#iframe-29').attr('src', data[0].link29 || '');
+      $('#iframe-30').attr('src', data[0].link30 || '');
+      $('#iframe-31').attr('src', data[0].link31 || '');      
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.error('Erro ao carregar categorias: ' + textStatus, errorThrown);
+    }
+  });
+
+  // Adicionar eventos de clique para redirecionar a diferentes URLs
+  $('.iframe-overlay').on('click', function() {
+    var url = $(this).data('url');
+    console.log('URL:', url);
+    
+    // Executar funções antes de redirecionar
+    fecharHost();
+    abrirmodalhostindividual();
+    buscarEquipamentos(url);
+    
+    function buscarEquipamentos(ip) {
+      // Requisição AJAX para buscar equipamentos com base no IP
+      $.ajax({
+          url: 'lista1.php',
+          method: 'GET',
+          data: { ip: ip },
+          dataType: 'json',
+          success: function(data) {
+            console.log('Dados retornados:', data);
+              if (data.length > 0) {
+                  $('#iframe-display').attr('src', data[0].link || '');
+                  $('#iframe-display1').attr('src', data[0].link1 || '');
+      $('#iframe-display2').attr('src', data[0].link2 || '');
+      $('#iframe-display3').attr('src', data[0].link3 || '');
+      $('#iframe-display4').attr('src', data[0].link4 || '');
+      $('#iframe-display5').attr('src', data[0].link5 || '');
+      $('#iframe-display6').attr('src', data[0].link6 || '');
+      $('#iframe-display7').attr('src', data[0].link7 || '');
+      $('#iframe-display8').attr('src', data[0].link8 || '');
+                  // Atualize outros iframes conforme necessário
+              } else {
+                  console.error('Nenhum equipamento encontrado para o IP: ' + ip);
+              }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              console.error('Erro ao buscar equipamentos: ' + textStatus, errorThrown);
+          }
+      });
+  }
+    
+
+
+
+    
+    
+});
+});
+

@@ -1,11 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['funcionario'])) {
+
+if (!isset($_SESSION['usuario'])) {
     header("Location: index.html");
     exit();
 }
 
-$funcionario = $_SESSION['funcionario'];
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,23 +15,20 @@ $funcionario = $_SESSION['funcionario'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>HostHub</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-  </head>
+    </head>
   <body>
-         <div class="resultado" id="resultados"></div>
+       
     <header>
       <img class="logo" src="logo.png" alt="..." class="img1" />
       <div class="ret1"><h1>HOSTHUB</h1></div>
      
         
-          <form class="ret3" onsubmit="buscar(event);">
-          <input type="text" id="query" placeholder="O que você deseja monitorar?" required>
-          <button type="submit">Buscar</button>
-          </form>
+       
      
        
           
            
+
       
         <div class="usuario" id="usuario">
           <svg class="usu"
@@ -80,16 +78,15 @@ $funcionario = $_SESSION['funcionario'];
         <h2 class="titulocadastro">USUÁRIO</h2>
         <div class="container123">
           <h2>Bem-vindo, <?php echo htmlspecialchars($usuario['Nome']); ?>!</h2>
-          <p><strong>Matrícula:</strong> <?php echo htmlspecialchars($usuario['Matricula']); ?></p>
+          <p><strong>CPF:</strong> <?php echo htmlspecialchars($usuario['CPF']); ?></p>
           <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($usuario['DataDeNascimento']); ?></p>
-          <p><strong>Email Corporativo:</strong> <?php echo htmlspecialchars($usuario['EmailCorporativo']); ?></p>
-          <p><strong>Permissão ID:</strong> <?php echo htmlspecialchars($usuario['PermissaoID']); ?></p>
-      </div>
+          <p><strong>Email:</strong> <?php echo htmlspecialchars($usuario['Email']); ?></p>
+         </div>
 
       </div>
     </div>
       
     <footer></footer>
-    <script src="script.js"></script>
+    <script src="scriptCliente.js"></script>
   </body>
 </html>

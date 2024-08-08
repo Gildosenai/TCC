@@ -1,11 +1,13 @@
+
 <?php
 session_start();
-if (!isset($_SESSION['funcionario'])) {
+
+if (!isset($_SESSION['usuario'])) {
     header("Location: index.html");
     exit();
 }
 
-$funcionario = $_SESSION['funcionario'];
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -412,9 +414,139 @@ $funcionario = $_SESSION['funcionario'];
       <div class="modal-content-redehost">
         <span id="close1" class="close">&times;</span>
         <h1 class="titulocadastro">HOST CADASTRADOS</h1>  
-        <div id="iframe-container" style="margin-top: 20px;">
-          <iframe id="iframe-display8" width="100%" height="800" frameborder="0"></iframe>
-        </div>
+
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.100"></div>
+  <iframe id="iframe-1" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.110"></div>
+  <iframe id="iframe-2" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.120"></div>
+  <iframe id="iframe-3" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.130"></div>
+  <iframe id="iframe-4" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.140"></div>
+  <iframe id="iframe-5" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.150"></div>
+  <iframe id="iframe-6" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.160"></div>
+  <iframe id="iframe-7" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.14"></div>
+  <iframe id="iframe-8" width="700" height="200" frameborder="0"></iframe>
+</div>
+
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.21"></div>
+  <iframe id="iframe-9" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.35"></div>
+  <iframe id="iframe-10" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.41"></div>
+  <iframe id="iframe-11" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.42"></div>
+  <iframe id="iframe-12" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.43"></div>
+  <iframe id="iframe-13" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.44"></div>
+  <iframe id="iframe-14" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.45"></div>
+  <iframe id="iframe-15" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.46"></div>
+  <iframe id="iframe-16" width="700" height="200" frameborder="0"></iframe>
+</div>
+
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.47"></div>
+  <iframe id="iframe-17" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.48"></div>
+  <iframe id="iframe-18" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.49"></div>
+  <iframe id="iframe-19" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.50"></div>
+  <iframe id="iframe-20" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.51"></div>
+  <iframe id="iframe-21" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.52"></div>
+  <iframe id="iframe-22" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.53"></div>
+  <iframe id="iframe-23" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.54"></div>
+  <iframe id="iframe-24" width="700" height="200" frameborder="0"></iframe>
+</div>
+
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.53"></div>
+  <iframe id="iframe-25" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.56"></div>
+  <iframe id="iframe-26" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.53"></div>
+  <iframe id="iframe-27" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.58"></div>
+  <iframe id="iframe-28" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.59"></div>
+  <iframe id="iframe-29" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.60"></div>
+  <iframe id="iframe-30" width="700" height="200" frameborder="0"></iframe>
+</div>
+<div id="iframe-container" style="margin-top: 20px;">
+  <div class="iframe-overlay" data-url="172.16.0.61"></div>
+  <iframe id="iframe-31" width="700" height="200" frameborder="0"></iframe>
+</div>
+
+
+        
+  
+        
         
       </div>
     </div>
@@ -483,11 +615,11 @@ $funcionario = $_SESSION['funcionario'];
         
         <h2 class="titulocadastro">USUÁRIO</h2>
         <div class="container123">
-          <h2>Bem-vindo, <?php echo htmlspecialchars($funcionario['Nome']); ?>!</h2>
-          <p><strong>Matrícula:</strong> <?php echo htmlspecialchars($funcionario['Matricula']); ?></p>
-          <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($funcionario['DataDeNascimento']); ?></p>
-          <p><strong>Email Corporativo:</strong> <?php echo htmlspecialchars($funcionario['EmailCorporativo']); ?></p>
-          <p><strong>Permissão ID:</strong> <?php echo htmlspecialchars($funcionario['PermissaoID']); ?></p>
+          <h2>Bem-vindo, <?php echo htmlspecialchars($usuario['Nome']); ?>!</h2>
+          <p><strong>Matrícula:</strong> <?php echo htmlspecialchars($usuario['Matricula']); ?></p>
+          <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($usuario['DataDeNascimento']); ?></p>
+          <p><strong>Email Corporativo:</strong> <?php echo htmlspecialchars($usuario['EmailCorporativo']); ?></p>
+          <p><strong>Permissão ID:</strong> <?php echo htmlspecialchars($usuario['PermissaoID']); ?></p>
       </div>
 
       </div>

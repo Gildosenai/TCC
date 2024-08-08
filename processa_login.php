@@ -23,14 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     'Nome' => $nome,
                     'DataDeNascimento' => $dataDeNascimento,
                     'EmailCorporativo' => $emailCorporativo,
-                    'PermissaoID' => $permissaoID
+                    'PermissaoID' => $permissaoID,
+                    'TipoUsuario' => 'funcionario'
                 );
             }
         }
         return false;
     }
 
-    // Função para verificar login na tabela de usuários
+    // Função para verificar login na tabela de clientes
     function verificarLoginUsuario($conn, $cpfMatricula, $senha) {
         $stmt = $conn->prepare("SELECT CPF, Nome, DataDeNascimento, Email, senha FROM clientes WHERE CPF = ?");
         $stmt->bind_param("s", $cpfMatricula);
@@ -47,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     'Nome' => $nome,
                     'DataDeNascimento' => $dataDeNascimento,
                     'Email' => $email,
-                    'PermissaoID' => 'user'  // Definindo uma permissão padrão para usuários
+                    'PermissaoID' => 'user',  // Definindo uma permissão padrão para usuários
+                    'TipoUsuario' => 'cliente'
                 );
             }
         }
@@ -55,25 +57,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Verificar login na tabela de funcionários
-    $funcionario = verificarLoginFuncionario($conn, $cpfMatricula, $senha);
+    $usuario = verificarLoginFuncionario($conn, $cpfMatricula, $senha);
 
-    if ($funcionario) {
-        $_SESSION['funcionario'] = $funcionario;
-        header("Location: home.php");
+    if (!$usuario) {
+        // Verificar login na tabela de clientes
+        $usuario = verificarLoginUsuario($conn, $cpfMatricula, $senha);
+    }
+
+    if ($usuario) {
+        $_SESSION['usuario'] = $usuario;
+        if ($usuario['TipoUsuario'] == 'funcionario') {
+            header("Location: home.php");
+        } else {
+            header("Location: homecliente.php");
+        }
         exit();
     } else {
-        // Verificar login na tabela de usuários
-        $usuario = verificarLoginUsuario($conn, $cpfMatricula, $senha);
-        
-        if ($usuario) {
-            $_SESSION['usuario'] = $usuario;
-            header("Location: homeCliente.php");
-            exit();
-        } else {
-            $mensagem = "CPF/Matrícula ou Senha Inválida.";
-            $redirecionar = "index.html";
-            echo "<script>alert('$mensagem'); window.location.href ='$redirecionar';</script>";
-        }
+        $mensagem = "CPF/Matrícula ou Senha Inválida.";
+        $redirecionar = "index.html";
+        echo "<script>alert('$mensagem'); window.location.href ='$redirecionar';</script>";
     }
 
     $conn->close();
