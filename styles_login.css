@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('tcc.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adiciona uma camada de opacidade sobre a imagem de fundo */
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+button {
+    background: linear-gradient(to right, #112070, #0A5294, #98DFF6);
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #111f70ad, #0a51949d, #98dff6a1);
+}
